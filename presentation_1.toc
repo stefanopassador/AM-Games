@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{Introduction}{4}{0}{1}
+\beamer@sectionintoc {2}{Preliminaries}{23}{0}{2}
+\beamer@sectionintoc {3}{Switching Moves: Proof of the Speedup Theorem}{36}{0}{3}
+\beamer@sectionintoc {4}{Arthur-Merlin Protocols for Approximate Lower Bound Verification}{51}{0}{4}
+\beamer@sectionintoc {5}{An Explicit AM Protocol for Graph Nonisomorphism and Coset Intersection in Permutation Groups.}{58}{0}{5}
