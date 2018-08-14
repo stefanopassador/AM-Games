@@ -219,7 +219,7 @@ BPP is contained within the polynomial time hierarchy, in fact it is contained i
 \frametitle{Relation to the Polynomial Time Hierarchy}
 The unbounded levels of the Arthur-Merlin hierarchy are not believed to be contained in a finite level of the polynomial time hierarchy. For any unbounded $t(n)$, there exists an oracle $C$ such that $AM(t(n))^c$ is not contained in $PH^c = U_{k>0} \sum_k^{p,c}$.
 
-Another plausible relation si that AM (and even $AM(poly)$) does not contain coNP. This would imply $NP \neq coNP$. Nevertheless, supporting evidence can be found.\\
+Another plausible relation is that AM (and even $AM(poly)$) does not contain coNP. This would imply $NP \neq coNP$. Nevertheless, supporting evidence can be found.\\
 \textbf{Proposition 2:} If $coNP \subseteq AM$ then the polynomial time hierarchy collapses to $\Sigma_2^p = \Pi_2^p = AM$ .\\
 Another piece of evidence is relativized separation:  $AM^c \nsupseteq coNP^c$.
 Another source of analogous situations arises in communication complexity theory. One can define the communication complexity analogs of the Arthur-Merlin hierarchy in a natural way. One hopes that separation results such as $coNP \nsubseteq AM$ are provable in that model.
@@ -244,22 +244,24 @@ Now, by assumption, $L_1 \in AM$. Therefore, $L \in MAM$. But $MAM = AM$ by the 
 The Collapse Theorem leaves us with the following short hierarchy:
 $$NP \cup BPP \subseteq MA \subseteq AM \subseteq AM(poly) \subseteq PSPACE$$\\
 These inclusions seem more likely to be proper. Of course, this cannot be proven as long as we do not know how to separate $P$ from $PSPACE$.\\
-Oracles separating MA and AM, AM from AM(poly), AM(poly) from PSPACe have been found. And each of these results operates on the relation between members of the Arthur-Merlin hierarchy and the polynomkial time hierarchy.
+Oracles separating MA and AM, AM from AM(poly), AM(poly) from PSPACE have been found. And each of these results operates on the relation between members of the Arthur-Merlin hierarchy and the polynomial time hierarchy.
 
 \end{frame}
 
 \begin{frame}
 \frametitle{Collapse and Speedup}
 \textbf{Theorem 4: Speedup Theorem}
-For $t(n) \geq 2$, $$AM(2t(n)) = AM(t(n))$$.
-The proof remains valid under any oracle. 
+For $t(n) \geq 2$, $$AM(2t(n)) = AM(t(n))$$
+
+The proof remains valid under any oracle.
+
 There exists an oracle C relative to which no unbounded speedup is possible: if $t(n) / s(n)$ is unbounded then $AM(t(n))^c \neq AM(s(n))^c$. 
 \end{frame}
 
 \begin{frame}
 \frametitle{Approximate Lower Bounds}
 
-Let the NP-language L consists of a pairs (x, y) of strings of equal length. Let $L(x) = \{y: (x, y) \in L\}$. Let $f$ be an integer. Suppose Merlin wants to convince Arthur that $|L(x)| \geq f$. This problem may be P-hard but one can achieve a more modest goal at the level of Arthur Merlin protocols. There exists such a protocol which allows Merlin to win almost certainly if actually $|L(x)| \geq (1 + \epsilon)f$; and gives him almost no chance if $|L(x)| < f$, for any given constant $\epsilon$. (In fact $\epsilon$ can even depend on n al long as it decreases at most at a polynomial rate). \\
+Let the NP-language L consists of a pairs (x, y) of strings of equal length. Let $L(x) = \{y: (x, y) \in L\}$. Let $f$ be an integer. Suppose Merlin wants to convince Arthur that $|L(x)| \geq f$. This problem may be P-hard but one can achieve a more modest goal at the level of Arthur Merlin protocols. There exists such a protocol which allows Merlin to win almost certainly if actually $|L(x)| \geq (1 + \epsilon)f$ and gives him almost no chance if $|L(x)| < f$, for any given constant $\epsilon$. (In fact $\epsilon$ can even depend on n al long as it decreases at most at a polynomial rate). \\
 The protocol employs universal hashing.
 \end{frame}
 
@@ -329,7 +331,7 @@ Its expected value will be: $$M x_1 A x_2 \ldots S_t x_t f(x_1, \ldots, x_t)$$
 
 \begin{frame}
 \frametitle{Formalism}
-Now, inductively, for $D = D_1 \times \ldots \times D_t$ we can define the random variable (over the sample space $D_2 \times D_3 \times \ldots \times \Omega$: $$\exists x_1 R x_2 \ldots Q_t x_t \phi(x_1, \ldots, x_t)$$
+Now, inductively, for $D = D_1 \times \ldots \times D_t$ we can define the random variable (over the sample space $D_2 \times D_4 \times \ldots \times \Omega$: $$\exists x_1 R x_2 \ldots Q_t x_t \phi(x_1, \ldots, x_t)$$
 Its expected value will be: $$M x_1 A x_2 \ldots S_t x_t f(x_1, \ldots, x_t)$$
 where $Q_t = \exists$ and $S_t = M$ if $t$ is odd; $Q_t = R$ and $S_t = A$ if $t$ is even. The variable $R x_q \exists x_2 \dots Q_t x_t \phi (x_1,\ldots,x_t)$ is analogously defined over $D_1 \times D_3 \times \dots \Omega$.
 \end{frame}
@@ -359,7 +361,7 @@ where $S_j = M$ if $Q_j = \exists$ and $S_j = A$ if $Q_j = R$.
 \begin{frame}
 \frametitle{Games against an Indifferent Adversary. Truncated Games}
 The probability that Merlin wins the game is $f^0$, the value of the root which we also refer to as the value of the game.\\
-By the evaluation of the game tree we mean the assignment of the values $f^i (x)$ to the nodes $x = (x_1,\ldots, x_i) \in D^i$ for every $i$. This is done recursively from bottom up:$f^t (x) = f(x)$:
+By the evaluation of the game tree we mean the assignment of the values $f^i (x)$ to the nodes $x = (x_1,\ldots, x_i) \in D^i$ for every $i$. This is done recursively from bottom up: $f^t (x) = f(x)$:
 \begin{itemize}
 \item on a Merlin level, $f^i (x) = Mx_{i+1}f^{i+1}(xx_{i+1})$;
 \item on an Arthur level: $f^i (x) = Ax_{i+1}f^{i+1}(xx_{i+1})$
@@ -380,7 +382,7 @@ With each node $x \in D^i$ we associate the \textit{residual game} $(\phi_x, Q_i
 
 \begin{frame}
 \frametitle{Biased Games, Arthur-Merlin Protocols}
-We call a game against an indifferent adversary \textit{biased} if the game value is either $>1/3$ or $< 1/3$. The game favors Merlin in the former case and Arthur in the latter. The \textit{uncertaintiy} of the game $(\phi, Q)$ is $unc(\phi, Q) = min {f^0, 1- f^0}$, where $f^0$ is the game value, the probability that Merlin wins. So, a biased game is one with uncertainty $<1/3$.\\
+We call a game against an indifferent adversary \textit{biased} if the game value is either $>1/3$ or $< 1/3$. The game favors Merlin in the former case and Arthur in the latter. The \textit{uncertaintiy} of the game $(\phi, Q)$ is $unc(\phi, Q) = min(f^0, 1- f^0)$, where $f^0$ is the game value, the probability that Merlin wins. So, a biased game is one with uncertainty $<1/3$.\\
 We shall consider \textit{uniform families} of biased, purely combinatorial Arthur-Merlin games, which we call Arthur-Merlin protocols. Such a protocol is determined by a polynomial time Turing machine, the \textit{referee}. On input $x$ the referee computes the polynomially bounded nonnegative integers $t = t(n), n_1,\ldots,n_t$ and thus generates the game space $D_1 \times D_2 \times \ldots \times D_t$ where $D_i = \{0, 1\}^{n_i}$. Subsequently the referee accepts a game history and declares the winner. For every input, the resulting game must be biased. 
 \end{frame}
 
@@ -388,14 +390,14 @@ We shall consider \textit{uniform families} of biased, purely combinatorial Arth
 \frametitle{Simulation of Arthur-Merlin protocols}
 Let $P1$ and $P2$ be two Arthur-Merlin protocols. We say that $P2$ simulates $P1$ if: for every input $x$, the same player is favored in both games.\\
 In the simulations we describe below, the new referee acts in polynomial time, using the old referee as an oracle, with the restriction that: on input x, the new referee queries the old referee only for values on the same input. Queries are free. By the cost of the simulation we mean the time complexity of the computation by the new referee, allowing free queries satisfying.\\
-It is then clear that the actual time complexity of the new protocol will be the (cost of simulation) plus (the number of queries) times (old complexity).
+It is then clear that the actual time complexity of the new protocol will be the CostOfSimulation $+$ ( NumberOfQueries $\times$ OldComplexity ).
 \end{frame}
 
 \begin{frame}
 \frametitle{Decreasing the Uncertainty}
 Often, we have to turn a modest advantage into an overwhelming one. This is easily accomplished by letting the players play the game in parallel on several ``boards'' and declaring $M$ the winner if he wins on more than half of the boards.\\
 In order to formalize this, let us define the game $(f^k, Q)$ as follows. The new game space is $$D^k = D_1^k \times \dots \times D_t^k$$
-Each history $u \in D^k$ can be thought of as the combination of $k$ parallel histories $u_1, \ldots u_k \in D$ for the ol dgame. Let $\phi_i(u_i)$ be independent realization of the random variables $\phi(u_i)$ (replacing the sample space $\Omega$ by $\Omega^k$). 
+Each history $u \in D^k$ can be thought of as the combination of $k$ parallel histories $u_1, \ldots u_k \in D$ for the old game. Let $\phi_i(u_i)$ be independent realization of the random variables $\phi(u_i)$ (replacing the sample space $\Omega$ by $\Omega^k$). 
 \end{frame}
 
 \begin{frame}
@@ -409,19 +411,20 @@ Of course, similar result holds if we replace 1/3 by any constant less than 1/2.
 \section{Switching Moves: Proof of the Speedup Theorem}
 
 \begin{frame}
-\textbf{Theorem 8.} For polynomially bounded $t(n) \geq 2$, $AM(2t(n)) = AM(t(n) + 1)$.\\
+\frametitle{Speedup Theorem}
+\textbf{Theorem 8.} For polynomially bounded $t(n) \geq 2$, $$AM(2t(n)) = AM(t(n) + 1)$$
 \textit{Proof.} Let P1 be the protocol to be simulated. On inputs of length n, P1 allows $t=2t(n)$ moves in the AM-game. We may assume $t$ is divisible by 4. We simulate P1 by protocol P2 allowing only $t/2 + 1$ moves. Set $\epsilon = (24t)^{-t}$. At the cost of a polynomial increase in the game size (total number of bits communicated), we may assume that P1 yields, on every input of length $n$, winning probability $< \epsilon$ or $> 1 - \epsilon$ for Merlin. Let $s$ be the (increased) game size and $m = 4st$. We may assume $s > n$.
 \end{frame}
 
 \begin{frame}
 \frametitle{Simulation}
 The simulation goeas as follows. We divide the sequence of moves into $t/4$ AMAM segments. We replace the MAM part of each such segment by an AMA part, thus reducing AMAM AMAMA \dots to AAMA AAMA AAMA \dots.\\
-Suppose an MAM segment of P1 consists of Merling selecting a string $x \in X$, then Arthur selecting $y \in Y$ and Merling selecting $z \in Z$. The corresponding part of P2 will consist of Arthur selecting $(y_1,\dots,y_m)\in Y^m$, then Merling selecting $x\in X$ and $(z_1,\dots,z_m)\in Z^m$, finally Arthur selecting $i \in \{1\ldots m\}$. In evaluating the game, the old deterministic referee is being fed the moves $(x, y_i, z_i)$. In other words, for a little while we pretend the game continues in parallel on $m$ boards, but then Arthur selects one board on which the onlly ``valid'' game will continue.
+Suppose an MAM segment of P1 consists of Merlin selecting a string $x \in X$, then Arthur selecting $y \in Y$ and Merlin selecting $z \in Z$. The corresponding part of P2 will consist of Arthur selecting $(y_1,\dots,y_m)\in Y^m$, then Merlin selecting $x\in X$ and $(z_1,\dots,z_m)\in Z^m$, finally Arthur selecting $i \in \{1\ldots m\}$. In evaluating the game, the old deterministic referee is being fed the moves $(x, y_i, z_i)$. In other words, for a little while we pretend the game continues in parallel on $m$ boards, but then Arthur selects one board on which the only ``valid'' game will continue.
 \end{frame}
 
 \begin{frame}
 \frametitle{Motivation}
-In order to reduce the number of turns, we switch some of the moves of Merlin $(x)$ and Arthur $(y)$. We periodically ask Arthur to revel his move $y$ before it would be his turn. This, of course, could lead to Merlin gaining decisive advantage, sufficient to reverse the odds. To counterthis advantage we proceed as follows. We multiply the number of boards and ask the players to play $m$ copies of the game in parallel. Now Arthur makes a separate independent move on each of the $m$ boards $(y)$. Next we ask Merlin to make his move $x$, the same move on each board. We hope that this way he will not be able to do much better than if he had had to move first. Subsequently we let the players continue playing on the $m$ boards in parallel (thus Merlin making his next move $z$).
+In order to reduce the number of turns, we switch some of the moves of Merlin $(x)$ and Arthur $(y)$. We periodically ask Arthur to reveal his move $y$ before it would be his turn. This, of course, could lead to Merlin gaining decisive advantage, sufficient to reverse the odds. To counterthis advantage we proceed as follows. We multiply the number of boards and ask the players to play $m$ copies of the game in parallel. Now Arthur makes a separate independent move on each of the $m$ boards $(y)$. Next we ask Merlin to make his move $x$, the same move on each board. We hope that this way he will not be able to do much better than if he had had to move first. Subsequently we let the players continue playing on the $m$ boards in parallel (thus Merlin making his next move $z$).
 \end{frame}
 
 \begin{frame}
@@ -448,7 +451,7 @@ $$Prob(f^2(x,y)>12t\delta) < 1/12t$$
 \begin{frame}
 \frametitle{Analysis}
 The probability of the bad event $B(x, y)$ that $f^2(x, y_i) > 12t\delta$ happens for more than $m/(2t)$ out of the $m$ values $1 \leq i \leq m$ (for fixed $x$ and randomly chosen $y_i$) is less than $$\binom{m}{m/(2t)} (12t)^{-m/(2t)} < (2et/12t)^{m/(2t)} < 2 ^{-m/(2t)}$$
-Finally, we note that $C(y) = (\exists X) B (x, y)$. We thus have $Prob(C(y)) \leq \sum _{x \in X} Prob B(x, y)$ completing the proof of the lemma.\\
+Finally, we note that $C(y) = (\exists X) B (x, y)$. We thus have $Prob(C(y)) \leq \sum _{x \in X} Prob(B(x, y))$ completing the proof of the lemma.\\
 \end{frame}
 
 \begin{frame}
@@ -479,7 +482,7 @@ Finally, we call a child $hi$ of a $i$-node $h$ lucky, if $h = h'yxz$ for some $
 
 \begin{frame}
 \frametitle{Analysis}
-Leet now $h = (u_1, y_1,\ldots, z_{t/4}, i_{t/4})$ be a P2-game history. If none of the initial segments of the game represent a lucky node, then $f(h) \leq (2t)^{t/4} (12t)^{t/4} \epsilon < 24^{-t/2} < 1$, Merlin loses. Hence Merlin's winning probability is not greater than the probability that it hits a lucky node during the game. This probability is bounded above by the sum of conditional probabilities $Prob(L_i|M_i)$, where $L_i$ denotes the event that the $i$th move hit a lucky node, while $M_i$ standa for the event that no previous node along the path was lucky.\\
+Let now $h = (u_1, y_1,\ldots, z_{t/4}, i_{t/4})$ be a P2-game history. If none of the initial segments of the game represent a lucky node, then $f(h) \leq (2t)^{t/4} (12t)^{t/4} \epsilon < 24^{-t/2} < 1$, Merlin loses. Hence Merlin's winning probability is not greater than the probability that it hits a lucky node during the game. This probability is bounded above by the sum of conditional probabilities $Prob(L_i|M_i)$, where $L_i$ denotes the event that the $i$th move hit a lucky node, while $M_i$ stands for the event that no previous node along the path was lucky.\\
 Each of the three kinds of levels with prospective lucky nodes is encountered $t/4$ times. The corresponding conditional probabilities are bounded by $1/(2t)$, $2^{-n}$, and again $1/(2t)$, respectively. The sum is thus $\leq 1/4 + t2^{-n-2} < 1/3$.
 \end{frame}
 
@@ -516,7 +519,7 @@ Let $C = AM(t(n))$ or $MA(t(n))$.\\
 Fix some $\epsilon > 0$. An $\epsilon$-approximate lower bound protocol of class $C$ is an Arthur-Merlin protocol, depending on an input pair $(N, x)$ such that, letting $W(N, x)$ denote Merlin's winning chances:
 \begin{itemize}
 	\item if $|L(x)| \geq (1 + \epsilon) N$ then $W(N, x) > 2/3$
-	\item if $|L(x) < N$ then $W(N, x) < 1/3$
+	\item if $|L(x)| < N$ then $W(N, x) < 1/3$
 \end{itemize}
 \end{frame}
 
@@ -526,14 +529,14 @@ Fix some $\epsilon > 0$. An $\epsilon$-approximate lower bound protocol of class
 Using a technique based on universal hashing, one can show:\\
 \textbf{Theorem 12.} For any $L \in NP$ and $\epsilon > 0$, an $\epsilon$-approximate lower bound protocol of class AM exists.
 \textbf{Proof.} First of all we remark, that the Collapse and Speedup Theorems apply to approximate lower bound protocols as well. Therefore it suffies to present an MAM protocol.\\
-Let $n = |x|;$ then, by assumption, $n = |y|$ for every $y \in L(x)$. First we consider the special case when Merlin claims $L(x)$ to be dense in $\{0, 1\}^n$. In this case Arthur selects $m$ random strings$y_i$ of length $n$; and Merlin supplies a witness whenever one exists that $(x, y_i) \in L$. Merlin's expected number of successes will be $m|L(x)|2^{-n}$ cases, we declare him the winner; otherwise Arthur wins.
+Let $n = |x|;$ then, by assumption, $n = |y|$ for every $y \in L(x)$. First we consider the special case when Merlin claims $L(x)$ to be dense in $\{0, 1\}^n$. In this case Arthur selects $m$ random strings $y_i$ of length $n$; and Merlin supplies a witness whenever one exists that $(x, y_i) \in L$. Merlin's expected number of successes will be $m|L(x)|2^{-n}$ cases, we declare him the winner; otherwise Arthur wins.
 \end{frame}
 
 \begin{frame}
 \frametitle{Approximate lower bound verification}
 Obviously, choosing any $m > c/\epsilon$ guarantees the validity of the two points for some absolute constant $c$.\\
 Now we turn to the general case. We identify $\{0, 1\}^n$ with the $n$-dimensional space other the field $GF(2)$. Linear maps from $\{0, 1\}^n$ to $\{0, 1\}^k$ are represented by $k \times n$ $(0, 1)$-matrices.\\
-\textbf{Lemma 13.} Let $S \subseteq \{0,1\}^n$. Let $\alpha > 0$ and $2?k \geq |S|/\alpha$. Then there exists a $k \times n$ $\{0, 1\}$-matrix $C$ s.t. $|C(S)|\geq (1- \alpha)|S|$, where $C(S) \subseteq \{0, 1\}^k$ is the image of $S$ under the linear map $C$.
+\textbf{Lemma 13.} Let $S \subseteq \{0,1\}^n$. Let $\alpha > 0$ and $2^k \geq |S|/\alpha$. Then there exists a $k \times n$ $\{0, 1\}$-matrix $C$ s.t. $|C(S)|\geq (1- \alpha)|S|$, where $C(S) \subseteq \{0, 1\}^k$ is the image of $S$ under the linear map $C$.
 \end{frame}
 
 \begin{frame}
@@ -544,7 +547,7 @@ We shall use this lemma with the following additional constraints on the paramet
 
 \begin{frame}
 \frametitle{Approximate lower bound verification}
-The protocol runs as folows. Merlin exhibits a $k \times n$ $(0,1)$-matrix $C$. Let $\delta = (1 + \epsilon)(1 - \alpha) -1$. Next, a $\delta$-approximate lower bound AM protocol, as above, tests the claim that $|C(S)| \geq N$. (Merlin verifies $v \in C(S)$ by exhibiting $u \in S$ such that $Cu = v$).\\
+The protocol runs as follows. Merlin exhibits a $k \times n$ $(0,1)$-matrix $C$. Let $\delta = (1 + \epsilon)(1 - \alpha) -1$. Next, a $\delta$-approximate lower bound AM protocol, as above, tests the claim that $|C(S)| \geq N$. (Merlin verifies $v \in C(S)$ by exhibiting $u \in S$ such that $Cu = v$).\\
 If $|S| \geq (1 + \epsilon)N$ then Merlin can assure (by the lemma) that $|C(S)| \geq (1 + \delta)N$. By the choice of $k$, $C(S)$ is thus dense in $\{0, 1\}^k$, and Merlin will win the game with large probability.\\
 On the other hand, if $|S| < N$, then whatever $C$ Merlin choses, $|C(S)| \leq |S| < N$, so Merlin is likely to lose.
 \end{frame}
@@ -563,7 +566,7 @@ We remark that this MAM protocol could easily be transformed into an AM protocol
 	\item if $X$ and $Y$ are isomorphic, then $c = 2ab$
 	\item if $X$ and $Y$ are not isomorphic, then $c = ab$.
 \end{enumerate}
-So all we have to do is to decide between the two alternatives $c = 2ab$ and $c = ab$ (not knowing the value of either of these numbers). In order to verify alternative (2), it suffices, however, to verify an approximate lower bopund for $a$ and $b$ and an approximate upper bound for $c$, each with factor of $2^{1/3}$.
+So all we have to do is to decide between the two alternatives $c = 2ab$ and $c = ab$ (not knowing the value of either of these numbers). In order to verify alternative (2), it suffices, however, to verify an approximate lower bound for $a$ and $b$ and an approximate upper bound for $c$, each with factor of $2^{1/3}$.
 \end{frame}
 
 \begin{frame}
@@ -583,7 +586,7 @@ for every $s \in S$.
 
 \begin{frame}
 \frametitle{Coset intersection}
-\textbf{Theorem 15.} The coset intersection problem is in $NP \cap coAM$.
+\textbf{Theorem 15.} The coset intersection problem is in $NP \cap coAM$.\\
 \textbf{Proof.} The NP part is clear. For the coAM claim, it suffices to consider the equivalent color isomorphism problem. Let us take two disjoint copies of $S$ and the permutation group $|$\^{G}$| = 2|G|^2$. Apply one coloring in each copy. Now, as before, we look at the color-automorphisms of the colorings on each half with respect to G as well as of the coloring of the union with respect to \^{G}. We again have alternatives (1) and (2), thus the verification of approximate bounds on the number of color-automorphism of a colored set suffices. The only difference compared to the previous argument is that the quantity $n!$ will be replaced by $|$\^{G}$|$.
 
 \end{frame}
